@@ -1,9 +1,9 @@
 
 swagger: "2.0"
 info:
-  title: Felix API
+  title: Felix Books API
   description: Demo For API Documentation
-  version: 1.0
+  version: 1.0.0
   contact:
     email: neeraj@felixtechlabs.com
   liscense:
@@ -12,6 +12,8 @@ info:
   servers:
     -url: "http://localhost:5000/"
     description: Local server
+    -url: "http://felix.com/"
+    description: production server
 
 schemes: [http, https]
 
@@ -45,3 +47,17 @@ paths:
 
         404:
           description: No books Found
+
+  /books/{bookId}/:
+    get:
+      summary: Return book by id
+      description: return book
+      parameters:
+        - name: bookId
+          in: path
+          schema: 
+            type: integer
+      responses:
+        200:
+          description: success
+
